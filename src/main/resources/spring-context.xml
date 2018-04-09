@@ -16,8 +16,6 @@
 	<mvc:resources mapping="/static/**" location="/static/"/>
 	
 	
-	
-	
     <bean id="mappingJacksonHttpMessageConverter" class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">  
         <property name="supportedMediaTypes">  
             <list>  
