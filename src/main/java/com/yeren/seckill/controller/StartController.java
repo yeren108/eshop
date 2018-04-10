@@ -11,9 +11,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.yeren.seckill.dao.RedisCacheDao;
 import com.yeren.seckill.mode.User;
 import com.yeren.seckill.service.GoodsService;
-import com.yeren.seckill.service.RedisCache;
 import com.yeren.seckill.service.UserService;
 
 import net.sf.json.JSONArray;
@@ -27,7 +27,7 @@ public class StartController {
 	UserService userService;
 	
 	@Autowired
-	RedisCache redisCache;
+	RedisCacheDao redisCacheDao;
 	
 	
 	private static final Logger logger = LoggerFactory.getLogger(StartController.class);
@@ -35,7 +35,7 @@ public class StartController {
 	
 	@RequestMapping(value="/makeUser", method = RequestMethod.GET)
 	@ResponseBody
-	public JSONArray makeUser(HttpServletRequest request, HttpServletResponse response){
+	public JSONArray makeUser(HttpServletRequest request, HttpServletResponse response) throws Exception{
 			System.out.println("---=====");
 			User user=new User();
 			user.setUserName("liubiao999");
@@ -43,20 +43,11 @@ public class StartController {
 			user.setMobile("18217543802");
 			user.setAddress("中囯上海");
 			user.setSeckill(0);
-			try {
-				redisCache.putCache("abc", user);
-				redisCache.putCache("name", "liubiao999");
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
+			redisCacheDao.putCache("abc", user);
 			User cacheUser=null;
 			String cache=null;
-			try {
-				cacheUser = (User)redisCache.getCache("abc");
-				cache = (String)redisCache.getCache("liubiao999");
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
+				cacheUser = (User)redisCacheDao.getCache("abc");
+				cache = (String)redisCacheDao.getCache("liubiao999");
 			System.out.println(cacheUser.getUserName());
 			
 			System.out.println(cache);

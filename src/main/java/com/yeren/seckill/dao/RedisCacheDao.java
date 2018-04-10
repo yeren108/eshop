@@ -1,24 +1,43 @@
-package com.yeren.seckill.service.impl;
+package com.yeren.seckill.dao;
 
 import java.io.Serializable;
+import java.util.concurrent.TimeUnit;
 
 import javax.annotation.Resource;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.dao.DataAccessException;
 import org.springframework.data.redis.connection.RedisConnection;
 import org.springframework.data.redis.core.RedisCallback;
 import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.core.ValueOperations;
 import org.springframework.stereotype.Component;
 
-import com.yeren.seckill.service.RedisCache;
 import com.yeren.seckill.utils.SerializerUtil;
 
+
 @Component
-public class RedisCacheImpl implements RedisCache{
+public class RedisCacheDao{
+	/**
+     * 日志记录
+     */
+    private Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @Resource
     private RedisTemplate<String,Serializable> redisTemplate;
-
+    
+    /**
+     * 前缀
+     */
+    public static final String KEY_PREFIX_VALUE = "yeren:report:value:";
+    public static final String KEY_PREFIX_SET = "yeren:report:set:";
+    public static final String KEY_PREFIX_LIST = "yeren:report:list:";
+    
+    
+ 
+    
+   
     /**
      * 添加缓存数据
      * @param key
@@ -30,6 +49,8 @@ public class RedisCacheImpl implements RedisCache{
     public <T> boolean putCache(String key, T obj) throws Exception {
         final byte[] bkey = key.getBytes();
         final byte[] bvalue = SerializerUtil.serializeObj(obj);
+        
+        
         boolean result = redisTemplate.execute(new RedisCallback<Boolean>() {
             @Override
             public Boolean doInRedis(RedisConnection connection) throws DataAccessException {
@@ -78,4 +99,6 @@ public class RedisCacheImpl implements RedisCache{
         }
         return (T) SerializerUtil.deserializeObj(result);
     }
+
+	
 }
