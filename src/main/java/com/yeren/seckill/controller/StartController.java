@@ -13,11 +13,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.yeren.seckill.mode.User;
 import com.yeren.seckill.service.GoodsService;
+import com.yeren.seckill.service.RedisCache;
 import com.yeren.seckill.service.UserService;
 
 import net.sf.json.JSONArray;
 @Controller
-@RequestMapping(value="a/")
+@RequestMapping(value="/start")
 public class StartController {
 	@Autowired
 	GoodsService goodsService;
@@ -25,23 +26,40 @@ public class StartController {
 	@Autowired
 	UserService userService;
 	
+	@Autowired
+	RedisCache redisCache;
+	
+	
 	private static final Logger logger = LoggerFactory.getLogger(StartController.class);
 	
 	
 	@RequestMapping(value="/makeUser", method = RequestMethod.GET)
 	@ResponseBody
 	public JSONArray makeUser(HttpServletRequest request, HttpServletResponse response){
-		System.out.println("");
-		/*for(int i=0;i<10;i++){
+			System.out.println("---=====");
 			User user=new User();
-			user.setUserName("liubiao"+i);
+			user.setUserName("liubiao999");
 			user.setPassword("123456");
-			user.setMobile("18217543801");
+			user.setMobile("18217543802");
 			user.setAddress("中囯上海");
 			user.setSeckill(0);
-			boolean result = userService.save(user);
-		}*/
-		
+			try {
+				redisCache.putCache("abc", user);
+				redisCache.putCache("name", "liubiao999");
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			User cacheUser=null;
+			String cache=null;
+			try {
+				cacheUser = (User)redisCache.getCache("abc");
+				cache = (String)redisCache.getCache("liubiao999");
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			System.out.println(cacheUser.getUserName());
+			
+			System.out.println(cache);
 		JSONArray jsonArray=new JSONArray();
 		jsonArray.add("count:"+"");
 		return jsonArray;

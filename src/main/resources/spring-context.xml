@@ -15,6 +15,8 @@
 	<mvc:annotation-driven />
 	<mvc:resources mapping="/static/**" location="/static/"/>
 	
+	<!-- 加载配置属性文件 -->
+	<context:property-placeholder ignore-unresolvable="true" location="classpath:redis.properties" />
 	
     <bean id="mappingJacksonHttpMessageConverter" class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">  
         <property name="supportedMediaTypes">  
@@ -38,6 +40,25 @@
 		class="org.springframework.orm.hibernate4.HibernateTransactionManager"
 		p:sessionFactory-ref="sessionFactory" />
 		
+	<!-- redis单机配置方案 start-->
 	
+	 <bean id="jedisPoolConfig" class="redis.clients.jedis.JedisPoolConfig">    
+        <property name="maxIdle" value="${redis.maxIdle}" />    
+        <property name="maxTotal" value="${redis.maxTotal}" /> <!-- 最大分配的对象数 -->  
+        <property name="testOnBorrow" value="${redis.testOnBorrow}" />    
+    </bean>  
+    
+	<bean id="connectionFactory" class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory"    
+        p:host-name="${redis.host}"   
+        p:port="${redis.port}"   
+        p:password="${redis.pass}"    
+        p:pool-config-ref="jedisPoolConfig"/>    
+        
+    <bean id="redisTemplate" class="org.springframework.data.redis.core.StringRedisTemplate">    
+        <property name="connectionFactory"   ref="connectionFactory" />    
+    </bean>
+    
+  
+	<!-- redis单机配置方案end -->
 
 </beans>
