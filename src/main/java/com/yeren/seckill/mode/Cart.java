@@ -74,4 +74,9 @@ public class Cart implements Serializable{
 		this.userId = userId;
 	}
 
+	@Override
+	public String toString() {
+		return "Cart [shoppingCartId=" + shoppingCartId + ", userId=" + userId + ", goods=" + goods + ", clean=" + clean
+				+ ", payed=" + payed + "]";
+	}
 }

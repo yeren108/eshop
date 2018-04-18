@@ -16,13 +16,18 @@
 
 	<bean id="dataSource"
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource"
-		p:url="jdbc:mysql://192.168.150.130:3306/eshop" p:driverClassName="com.mysql.jdbc.Driver"
-		p:username="root" p:password="123456Ab$" />
+		p:url="jdbc:mysql://192.168.150.130:3306/seckill" 
+		p:driverClassName="com.mysql.jdbc.Driver"
+		p:username="root" 
+		p:password="123456Ab$" 
+		 />
 	
-	<!--<bean id="dataSource"
+	<!-- <bean id="dataSource"
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource"
-		p:url="jdbc:mysql://139.199.124.81:3306/eshop" p:driverClassName="com.mysql.jdbc.Driver"
-		p:username="root" p:password="123456Ab$" />-->
+		p:url="jdbc:mysql://139.199.124.81:3306/seckill" 
+		p:driverClassName="com.mysql.jdbc.Driver"
+		p:username="root" 
+		p:password="123456Ab$" /> -->
 		
 
 	<bean id="sessionFactory"

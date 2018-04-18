@@ -8,30 +8,17 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.yeren.seckill.mode.User;
 
+/**
+ * 创建用户
+ * @author ThinkPad
+ *
+ */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("classpath:spring-context-test.xml")
 public class TestUserService {
 	
 	@Autowired
 	UserService userService;
-	
-//	@Test
-	public void testMakeUser() {
-		for(int i=0;i<100000;i++){
-			User user=new User();
-			user.setUserName("liubiao"+(i+1));
-			user.setPassword("123456");
-			user.setMobile("18217543800");
-			user.setAddress("");
-			user.setLogin(0);
-			user.setSeckill(0);
-			boolean result = userService.save(user);
-		}
-		System.out.println("========ok========");
-		System.out.println("========ok========");
-		System.out.println("========ok========");
-	}
-	
 	
 //	@Test
 	public void testSave() {
@@ -55,7 +42,7 @@ public class TestUserService {
 		System.out.println(""+result);
 	}
 	
-	@Test
+//	@Test
 	public void testFindById() {
 		User user = userService.findById(1);
 		System.out.println(""+user.getUserName());

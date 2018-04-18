@@ -96,7 +96,10 @@ public class User implements Serializable{
 		this.seckill = seckill;
 	}
 
-	
-	
+	@Override
+	public String toString() {
+		return "User [userId=" + userId + ", userName=" + userName + ", password=" + password + ", mobile=" + mobile
+				+ ", address=" + address + ", login=" + login + ", seckill=" + seckill + "]";
+	}
 
 }

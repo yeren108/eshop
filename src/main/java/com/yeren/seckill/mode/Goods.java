@@ -58,4 +58,10 @@ public class Goods implements Serializable{
 	public void setGoodsNumber(Integer goodsNumber) {
 		this.goodsNumber = goodsNumber;
 	}
+
+	@Override
+	public String toString() {
+		return "Goods [goodsId=" + goodsId + ", goodsName=" + goodsName + ", goodsPrice=" + goodsPrice
+				+ ", goodsNumber=" + goodsNumber + "]";
+	}
 }
