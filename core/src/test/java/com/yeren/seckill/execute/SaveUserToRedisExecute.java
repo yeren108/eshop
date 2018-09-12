@@ -9,7 +9,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.yeren.seckill.execute.thread.SaveUserToRedisThead;
-import com.yeren.seckill.service.UserService;
+import com.yeren.service.UserService;
 
 import redis.clients.jedis.Jedis;
 /**

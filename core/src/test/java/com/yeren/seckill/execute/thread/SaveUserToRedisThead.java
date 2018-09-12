@@ -1,7 +1,7 @@
 package com.yeren.seckill.execute.thread;
 
 import com.yeren.seckill.execute.fun.SaveUserToRedis;
-import com.yeren.seckill.service.UserService;
+import com.yeren.service.UserService;
 
 import redis.clients.jedis.Jedis;
 

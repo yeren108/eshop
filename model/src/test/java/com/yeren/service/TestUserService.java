@@ -1,13 +1,13 @@
 package com.yeren.service;
 
-import com.yeren.seckill.service.UserService;
+import com.yeren.service.UserService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import com.yeren.seckill.mode.User;
+import com.yeren.mode.User;
 
 /**
  * 创建用户

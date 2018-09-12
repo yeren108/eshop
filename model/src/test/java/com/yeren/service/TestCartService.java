@@ -1,13 +1,13 @@
 package com.yeren.service;
 
-import com.yeren.seckill.service.CartService;
+import com.yeren.service.CartService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import com.yeren.seckill.mode.Cart;
+import com.yeren.mode.Cart;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("classpath:spring-context-test.xml")

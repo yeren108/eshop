@@ -1,7 +1,7 @@
 package com.yeren.service;
 
-import com.yeren.seckill.service.GoodsService;
-import com.yeren.seckill.service.UserService;
+import com.yeren.service.GoodsService;
+import com.yeren.service.UserService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

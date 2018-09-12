@@ -1,7 +1,7 @@
 package com.yeren.seckill.execute.fun;
 
-import com.yeren.seckill.mode.User;
-import com.yeren.seckill.service.UserService;
+import com.yeren.mode.User;
+import com.yeren.service.UserService;
 
 import redis.clients.jedis.Jedis;
 
