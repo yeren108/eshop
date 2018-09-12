@@ -3,9 +3,16 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.yeren</groupId>
   <artifactId>seckill</artifactId>
-  <packaging>war</packaging>
+  <packaging>pom</packaging>
   <version>0.0.1-SNAPSHOT</version>
-  <name>seckill Maven Webapp</name>
+	<modules>
+		<module>core</module>
+		<module>user</module>
+		<module>redis</module>
+		<module>web</module>
+        <module>model</module>
+    </modules>
+	<name>seckill</name>
   <url>http://maven.apache.org</url>
   <dependencies>
 		<dependency>
