@@ -1,7 +1,8 @@
-package com.yeren.seckill.execute;
+package com.yeren.execute;
 
 import java.io.IOException;
 
+import com.yeren.constant.JedisStandalAloneConfig;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
@@ -19,8 +20,8 @@ public class ListSeckillUserFromRedisExecute {
 	
 	@Test
 	public void saveUser() throws IOException{
-		Jedis jedis=new Jedis("139.199.124.81", 6370);
-		jedis.auth("foobared");
+		Jedis jedis=new Jedis(JedisStandalAloneConfig.STANDAL_ALONE_HOST, JedisStandalAloneConfig.STANDAL_ALONE_PORT);
+		jedis.auth(JedisStandalAloneConfig.STANDAL_ALONE_AUTH);
 		
 		for(int i=0;i<5000;i++){
 			String hget = jedis.hget("sekill:"+String.valueOf(i), "seckill");

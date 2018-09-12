@@ -1,17 +1,20 @@
-package com.yeren.seckill.execute;
+package com.yeren.execute;
 
 import java.io.IOException;
 
+import com.yeren.constant.JedisStandalAloneConfig;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import com.yeren.seckill.execute.thread.SaveUserToRedisThead;
+import com.yeren.execute.thread.SaveUserToRedisThead;
 import com.yeren.service.UserService;
 
 import redis.clients.jedis.Jedis;
+
+
 /**
  * 存放登陆用户，模拟用户已经登陆了，信息被记录到redis中了
  * @author ThinkPad
@@ -26,32 +29,29 @@ public class SaveUserToRedisExecute {
 	
 	@Test
 	public void saveUser() throws IOException{
-//		Jedis jedis=new Jedis("139.199.124.81", 6370);
-//		jedis.auth("foobared");
+		Jedis jedis1=new Jedis(JedisStandalAloneConfig.STANDAL_ALONE_HOST, JedisStandalAloneConfig.STANDAL_ALONE_PORT);
+		jedis1.auth(JedisStandalAloneConfig.STANDAL_ALONE_AUTH);
 		
-		Jedis jedis1=new Jedis("139.199.124.81", 6370);
-		jedis1.auth("foobared");
+		Jedis jedis2=new Jedis(JedisStandalAloneConfig.STANDAL_ALONE_HOST, JedisStandalAloneConfig.STANDAL_ALONE_PORT);
+		jedis2.auth(JedisStandalAloneConfig.STANDAL_ALONE_AUTH);
 		
-		Jedis jedis2=new Jedis("139.199.124.81", 6370);
-		jedis2.auth("foobared");
+		Jedis jedis3=new Jedis(JedisStandalAloneConfig.STANDAL_ALONE_HOST, JedisStandalAloneConfig.STANDAL_ALONE_PORT);
+		jedis3.auth(JedisStandalAloneConfig.STANDAL_ALONE_AUTH);
 		
-		Jedis jedis3=new Jedis("139.199.124.81", 6370);
-		jedis3.auth("foobared");
+		Jedis jedis4=new Jedis(JedisStandalAloneConfig.STANDAL_ALONE_HOST, JedisStandalAloneConfig.STANDAL_ALONE_PORT);
+		jedis4.auth(JedisStandalAloneConfig.STANDAL_ALONE_AUTH);
 		
-		Jedis jedis4=new Jedis("139.199.124.81", 6370);
-		jedis4.auth("foobared");
+		Jedis jedis5=new Jedis(JedisStandalAloneConfig.STANDAL_ALONE_HOST, JedisStandalAloneConfig.STANDAL_ALONE_PORT);
+		jedis5.auth(JedisStandalAloneConfig.STANDAL_ALONE_AUTH);
 		
-		Jedis jedis5=new Jedis("139.199.124.81", 6370);
-		jedis5.auth("foobared");
+		Jedis jedis6=new Jedis(JedisStandalAloneConfig.STANDAL_ALONE_HOST, JedisStandalAloneConfig.STANDAL_ALONE_PORT);
+		jedis6.auth(JedisStandalAloneConfig.STANDAL_ALONE_AUTH);
 		
-		Jedis jedis6=new Jedis("139.199.124.81", 6370);
-		jedis6.auth("foobared");
+		Jedis jedis7=new Jedis(JedisStandalAloneConfig.STANDAL_ALONE_HOST, JedisStandalAloneConfig.STANDAL_ALONE_PORT);
+		jedis7.auth(JedisStandalAloneConfig.STANDAL_ALONE_AUTH);
 		
-		Jedis jedis7=new Jedis("139.199.124.81", 6370);
-		jedis7.auth("foobared");
-		
-		Jedis jedis=new Jedis("139.199.124.81", 6370);
-		jedis.auth("foobared");
+		Jedis jedis=new Jedis(JedisStandalAloneConfig.STANDAL_ALONE_HOST, JedisStandalAloneConfig.STANDAL_ALONE_PORT);
+		jedis.auth(JedisStandalAloneConfig.STANDAL_ALONE_AUTH);
 		Runnable r1=new SaveUserToRedisThead(jedis1,userService,0,2000);
 		Runnable r2=new SaveUserToRedisThead(jedis2,userService,2000,4000);
 		Runnable r3=new SaveUserToRedisThead(jedis3,userService,4000,6000);

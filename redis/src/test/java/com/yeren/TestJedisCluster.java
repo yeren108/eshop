@@ -1,5 +1,7 @@
 package com.yeren;
 
+import com.yeren.constant.JedisClusterConfig;
+import com.yeren.constant.JedisStandalAloneConfig;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
@@ -28,12 +30,12 @@ public class TestJedisCluster {
 		poolConfig.setTestOnBorrow(true);
 		
 		HashSet<HostAndPort> nodes = new HashSet<>();
-		nodes.add(new HostAndPort("139.199.124.81", 6379));
-		nodes.add(new HostAndPort("139.199.124.81", 6380));
-		nodes.add(new HostAndPort("139.199.124.81", 6381));
-		nodes.add(new HostAndPort("139.199.124.81", 6382));
-		nodes.add(new HostAndPort("139.199.124.81", 6383));
-		nodes.add(new HostAndPort("139.199.124.81", 6384));
+		nodes.add(new HostAndPort(JedisClusterConfig.JEDIS_CLUSTER_HOST1, JedisClusterConfig.JEDIS_CLUSTER_PORT1));
+		nodes.add(new HostAndPort(JedisClusterConfig.JEDIS_CLUSTER_HOST2, JedisClusterConfig.JEDIS_CLUSTER_PORT2));
+		nodes.add(new HostAndPort(JedisClusterConfig.JEDIS_CLUSTER_HOST3, JedisClusterConfig.JEDIS_CLUSTER_PORT3));
+		nodes.add(new HostAndPort(JedisClusterConfig.JEDIS_CLUSTER_HOST4, JedisClusterConfig.JEDIS_CLUSTER_PORT4));
+		nodes.add(new HostAndPort(JedisClusterConfig.JEDIS_CLUSTER_HOST5, JedisClusterConfig.JEDIS_CLUSTER_PORT5));
+		nodes.add(new HostAndPort(JedisClusterConfig.JEDIS_CLUSTER_HOST6, JedisClusterConfig.JEDIS_CLUSTER_PORT6));
 		JedisCluster cluster = new JedisCluster(nodes);
 		cluster.set("key1", "test");
 		String string = cluster.get("key1");
@@ -45,7 +47,8 @@ public class TestJedisCluster {
 	// @Test
 	public void testJedisSingel() {
 		// 创建jedis对象
-		Jedis jedis = new Jedis("139.199.124.81", 6381);
+		Jedis jedis = new Jedis(JedisStandalAloneConfig.STANDAL_ALONE_HOST, JedisStandalAloneConfig.STANDAL_ALONE_PORT);
+		jedis.auth(JedisStandalAloneConfig.STANDAL_ALONE_AUTH);
 		// 调用jedis对象方法，方法名和Jedis命令一致
 		// jedis.set("key1", "jedis test");
 		String string = jedis.get("a");

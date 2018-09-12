@@ -1,6 +1,5 @@
 package com.yeren.service;
 
-import com.yeren.service.CartService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,26 +24,26 @@ public class TestCartService {
 		cart.setPayed(false);
 		
 		boolean result = cartService.save(cart);
-		System.out.println(":"+result);
+		System.out.println("保存:"+result);
 	}
 	
 	@Test
 	public void testUpdate() {
-		Cart cart = cartService.findById(2);
+		Cart cart = cartService.findById(1);
 		cart.setGoods("(1,6)&");
 		boolean result = cartService.update(cart);
-		System.out.println(":"+result);
+		System.out.println("更新:"+result);
 	}
 	
 	@Test
 	public void testFindById() {
-		Cart cart = cartService.findById(2);
-		System.out.println(":"+cart.getGoods());
+		Cart cart = cartService.findById(1);
+		System.out.println("查找:"+cart.getGoods());
 	}
 	
 	@Test
 	public void testDeleteById() {
 		boolean delete = cartService.delete(2);
-		System.out.println(":"+delete);
+		System.out.println("删除:"+delete);
 	}
 }

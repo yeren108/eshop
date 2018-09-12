@@ -1,4 +1,4 @@
-package com.yeren.seckill.execute;
+package com.yeren.execute;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -10,9 +10,8 @@ import com.yeren.mode.User;
 import com.yeren.service.UserService;
 
 /**
- * 创建用户
+ * 在数据库中创建用户:模拟用户在线/下线,在线的用户是否参与秒杀
  * @author ThinkPad
- *
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("classpath:spring-context-test.xml")
@@ -33,7 +32,7 @@ public class SaveUserToMysqlExecute {
 			//对3取余为0的用户是在线的
 			if(i%3==0){
 				user.setLogin(1);
-				//对3取余为0的用户是在线的,并且这些人中对4取余的人是要参与秒杀的
+				//这些人在线的人中对4取余的人是要参与秒杀的
 				if(i%4==0){
 					user.setSeckill(1);
 				}else{

@@ -1,4 +1,4 @@
-package com.yeren.seckill.controller;
+package com.yeren.controller;
 
 import com.yeren.redis.RedisCacheDao;
 import com.yeren.mode.User;

@@ -1,4 +1,4 @@
-package com.yeren.seckill.execute.fun;
+package com.yeren.execute.fun;
 
 import com.yeren.mode.User;
 import com.yeren.service.UserService;
