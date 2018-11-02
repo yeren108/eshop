@@ -15,7 +15,6 @@
     <name>core</name>
     <url>yeren108.cn</url>
 
-
     <dependencies>
         <dependency>
             <groupId>com.yeren</groupId>
