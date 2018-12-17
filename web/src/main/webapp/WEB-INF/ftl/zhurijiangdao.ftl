@@ -20,7 +20,7 @@
 	<div id="header">
 		<table border="0" width="100%">
 			<tr>
-				<td colspan="7" style="width: 100%;text-align: center;"><a href="http://localhost:8080/web/index"><img alt="见证" src="logo/100.png"></td>
+				<td colspan="7" style="width: 100%;text-align: center;"><a href="/web/index"><img alt="见证" src="logo/100.png"></td>
 			</tr>
 		</table>
 	</div>

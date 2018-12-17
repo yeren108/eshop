@@ -18,7 +18,7 @@
 <div id="header">
 		<table border="0" width="100%">
 			<tr>
-				<td colspan="7" style="width: 100%;text-align: center;"><a href="http://localhost:8080/web/index"><img alt="见证" src="logo/100.png"></td>
+				<td colspan="7" style="width: 100%;text-align: center;"><a href="/web/index"><img alt="见证" src="logo/100.png"></td>
 			</tr>
 		</table>
 	</div>
@@ -32,7 +32,7 @@
             <td colspan="7">
                 <table align="center" border="0" width="100%">
                     <tr align="center">
-                        <td><a href="http://localhost:8080/web/zrjd"><img alt="见证"
+                        <td><a href="zrjd"><img alt="见证"
                                                                        src="logo/zr.png"></a></td>
                         <td><a href="pages/zhuantijiangdao.html"><img alt="见证"
                                                                          src="logo/zt.png"></a></td>
