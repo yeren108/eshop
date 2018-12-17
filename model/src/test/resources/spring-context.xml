@@ -36,10 +36,10 @@
 
 	<bean id="dataSource"
 		  class="org.springframework.jdbc.datasource.DriverManagerDataSource"
-		  p:url="jdbc:mysql://192.168.150.130:3306/seckill"
+		  p:url="jdbc:mysql://127.0.0.1:3306/seckill"
 		  p:driverClassName="com.mysql.jdbc.Driver"
 		  p:username="root"
-		  p:password="123456Ab$"
+		  p:password="root123"
 	/>
 
 	<bean id="sessionFactory"
